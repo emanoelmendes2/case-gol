@@ -5,17 +5,18 @@
 {% block content %}
 <form method="POST" class="mb-4">
     <div class="form-group">
+        <h2>Gráfico RPK</h2>
         <label for="mercado" class="form-label">Mercado:</label>
+        <select id="mercado" name="mercado" class="form-control">
+            {% for mercado in mercados %}
+            <option value="{{ mercado.mercado }}">{{ mercado.mercado }}</option>
+            {% endfor %}
+        </select>
         {% if mes_ano_inicio and mes_ano_fim %}
             <p>Dados: De {{ mes_ano_inicio }} até {{ mes_ano_fim }} dependendo do mercado. </p>
         {% else %}
             <p>Dados: De - até -</p>
         {% endif %}
-        <select id="mercado" name="mercado" class="form-control">
-            {% for mercado in mercados %}
-                <option value="{{ mercado.mercado }}">{{ mercado.mercado }}</option>
-            {% endfor %}
-        </select>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -40,7 +41,6 @@
     <button type="submit" class="btn btn-primary">Filtrar</button>
 </form>
 {% if plot_url %}
-    <h2>Gráfico RPK</h2>
     <img src="data:image/png;base64,{{ plot_url }}" alt="Gráfico RPK" class="img-fluid">
 {% endif %}
 {% endblock %}
