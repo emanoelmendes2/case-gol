@@ -6,6 +6,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 
 def create_app():
+    """ Inicializa a aplicação Flask """
     app = Flask(__name__)
     app.config.from_object("config.Config")
 
