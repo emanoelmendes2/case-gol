@@ -9,11 +9,12 @@ Este projeto é um dashboard para visualização de gráficos RPK por Ano-Mês.
 ```bash
 flask db init
 flask db migrate -m "Initial migration"
-flask db upgrade
+
 ```
 
 ### 2. Para popular o banco de dados primeiro adicionar o arquivo em csv na pasta do projeto e depois rodar o comando:
 ```bash
+flask db upgrade
 python load_data.py
 ```
 
