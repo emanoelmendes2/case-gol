@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for
 from .models import db, Usuario
-from .routes import auth_bp, dashboard_bp
+from .auth_routes import auth_bp
+from .routes import dashboard_bp
 from flask_migrate import Migrate
 from flask_login import LoginManager
 
@@ -19,7 +20,7 @@ def create_app():
     login_manager.init_app(app)
     login_manager.login_view = "auth.login"
 
-    # Registra as rotas
+    # Registra os blueprints
     app.register_blueprint(auth_bp)
     app.register_blueprint(dashboard_bp)
 

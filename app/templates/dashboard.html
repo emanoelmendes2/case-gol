@@ -6,6 +6,11 @@
 <form method="POST" class="mb-4">
     <div class="form-group">
         <label for="mercado" class="form-label">Mercado:</label>
+        {% if mes_ano_inicio and mes_ano_fim %}
+            <p>Dados: De {{ mes_ano_inicio }} até {{ mes_ano_fim }} dependendo do mercado. </p>
+        {% else %}
+            <p>Dados: De - até -</p>
+        {% endif %}
         <select id="mercado" name="mercado" class="form-control">
             {% for mercado in mercados %}
                 <option value="{{ mercado.mercado }}">{{ mercado.mercado }}</option>
